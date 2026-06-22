@@ -82,3 +82,25 @@ function revealCards() {
         }
     });
 }
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+const images = document.querySelectorAll(".project-image");
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+    img.onclick = function(e){
+        e.preventDefault(); // stop link kalau klik image
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+});
+
+closeBtn.onclick = function(){
+    modal.style.display = "none";
+}
+
+modal.onclick = function(e){
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+}
